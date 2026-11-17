@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff5e3">
+<title>Спаси рецептата — пекарска игра</title>
+<style>
+:root{--bg:#fff8ec;--paper:#fffdf8;--ink:#3b2619;--muted:#745d4b;--line:#e7d5bd;--bread:#a95724;--bread-dark:#783b1b;--gold:#efbd63;--gold-pale:#fff0c9;--green:#2f7357;--green-pale:#e6f4ea;--red:#a83f32;--red-pale:#fff0ed;--shadow:0 10px 28px rgba(91,54,25,.09)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 90% 0%,#f9e7c8 0,transparent 25rem),var(--bg);color:var(--ink);font-family:ui-rounded,"Trebuchet MS",Arial,sans-serif;line-height:1.45}.shell{max-width:1050px;margin:0 auto;padding:24px 18px 48px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}.brand{display:flex;align-items:center;gap:13px}.brand-mark{height:48px;width:48px;display:grid;place-items:center;border-radius:16px;background:var(--gold-pale);font-size:27px}.eyebrow{margin:0;color:var(--bread);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:12px}.brand h1{font-size:22px;line-height:1.15;margin:2px 0 0}.privacy{font-size:12px;color:var(--muted);background:#fffdf8;border:1px solid var(--line);border-radius:999px;padding:7px 12px}.intro{padding:28px 30px;border-radius:26px;background:linear-gradient(120deg,#fff0cc,#fffaf0 65%);box-shadow:var(--shadow);position:relative;overflow:hidden}.intro:after{content:"";position:absolute;right:26px;top:16px;width:86px;height:86px;border-radius:50%;background:rgba(239,189,99,.18)}.intro h2{font-size:clamp(27px,5vw,42px);line-height:1.12;margin:0 110px 10px 0;letter-spacing:-.02em}.intro p{max-width:680px;color:#694b35;margin:0;font-size:17px}.mode-nav{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.tab{border:1px solid var(--line);color:var(--muted);background:#fffdf8;border-radius:999px;padding:10px 15px;font:700 14px inherit;cursor:pointer;transition:.15s}.tab.active{background:var(--bread);border-color:var(--bread);color:white}.panel{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:var(--shadow);margin-top:12px}.panel h2{margin:0 0 8px;font-size:25px}.panel h3{margin:0 0 7px;font-size:18px}.muted{color:var(--muted)}.setup{display:flex;align-items:end;gap:14px;flex-wrap:wrap;margin-top:18px}.field{display:grid;gap:6px;min-width:210px}.field label{font-size:13px;font-weight:800;color:#62452f}.field select{height:46px;border:1px solid #d7bfa0;border-radius:12px;padding:0 12px;background:white;color:var(--ink);font-size:16px}.btn{border:0;border-radius:12px;padding:12px 18px;background:var(--bread);color:#fff;font-size:15px;font-weight:800;cursor:pointer;box-shadow:0 3px 0 var(--bread-dark);transition:transform .1s,filter .1s}.btn:hover{filter:brightness(1.06);transform:translateY(-1px)}.btn:active{transform:translateY(2px);box-shadow:none}.btn.secondary{background:#f2e4ce;color:var(--ink);box-shadow:0 3px 0 #d6c1a2}.btn.small{padding:9px 13px;font-size:13px}.mode-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px}.mode-card{border:1px solid var(--line);background:#fffaf1;border-radius:18px;padding:18px;min-height:164px;display:flex;flex-direction:column;align-items:flex-start}.mode-card .icon{font-size:24px;margin-bottom:8px}.mode-card h3{margin:0 0 5px;font-size:17px}.mode-card p{margin:0 0 14px;color:var(--muted);font-size:13px;flex:1}.mode-card button{align-self:flex-start}.task-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}.round-tag{background:var(--gold-pale);color:#724315;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900;white-space:nowrap}.bar-track{height:10px;background:#f1e6d5;border-radius:99px;overflow:hidden;margin:14px 0 22px}.bar-fill{height:100%;background:linear-gradient(90deg,#de8d3a,#edbd5e);width:0;transition:width .3s}.scenario{display:grid;grid-template-columns:1fr 210px;gap:20px;align-items:center;background:#fff7e8;border:1px solid #f0dfc4;border-radius:18px;padding:20px;margin:14px 0 20px}.scenario .target{font-size:18px;color:var(--muted);margin:0}.scenario .actual{font-size:clamp(36px,7vw,54px);font-weight:900;line-height:1;color:var(--bread-dark);margin:7px 0 0;font-variant-numeric:tabular-nums}.scenario .unit{font-size:20px}.scale-art{justify-self:center;width:152px;height:108px;border-radius:22px;background:#fffdf8;border:1px solid var(--line);display:grid;place-items:center;position:relative}.scale-art:before{content:"";width:82px;height:28px;background:#e6d4bc;border:3px solid #8d6040;border-radius:8px 8px 18px 18px;position:absolute;top:20px}.scale-art:after{content:"";width:60px;height:27px;background:#d7edd9;border:2px solid #578569;border-radius:6px;position:absolute;top:56px}.scale-art span{position:relative;z-index:1;top:23px;font-size:14px;font-weight:900;color:#244932;font-variant-numeric:tabular-nums}.question{font-size:18px;font-weight:900;margin:0 0 10px}.choices{display:flex;gap:10px;flex-wrap:wrap}.choice{min-width:130px;border:2px solid #e2d2bd;border-radius:14px;background:white;color:var(--ink);padding:12px 16px;font-size:16px;font-weight:800;cursor:pointer}.choice:hover{border-color:#d59450;background:#fffaf0}.choice.selected{border-color:var(--bread);background:#fff0d9;color:var(--bread-dark);box-shadow:0 0 0 2px rgba(169,87,36,.1)}.amounts .choice{min-width:95px}.answer-group{margin:20px 0}.feedback{border-radius:16px;padding:16px;margin:18px 0 0;border:1px solid var(--line);background:#fffaf2}.feedback.good{background:var(--green-pale);border-color:#b9d9c3}.feedback.try{background:var(--gold-pale);border-color:#e9ce95}.feedback h3{margin:0 0 5px}.number-line{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:12px}.number-node{border:1px solid #dec39d;background:white;border-radius:10px;padding:8px 11px;font-weight:900;font-variant-numeric:tabular-nums}.number-node.start{background:#f3e3cf}.number-node.goal{background:#e7f3e8;border-color:#b9d9c3}.line-arrow{color:var(--bread);font-weight:900}.quick-hint{font-size:13px;color:var(--muted);margin:10px 0 0}.action-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:20px}.inline-note{font-size:13px;color:var(--muted)}.result-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0}.metric{background:#fff7e8;border-radius:15px;padding:14px;text-align:center}.metric strong{display:block;font-size:26px;color:var(--bread-dark)}.metric span{font-size:12px;color:var(--muted)}.result-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}.result-table th,.result-table td{padding:10px;border-bottom:1px solid var(--line);text-align:left}.result-table th{color:var(--muted);font-size:12px}.correct{color:var(--green);font-weight:800}.incorrect{color:var(--red);font-weight:800}.saved-note{font-size:12px;color:var(--muted)}.dashboard{overflow-x:auto}.dashboard table{width:100%;border-collapse:collapse;min-width:720px}.dashboard th,.dashboard td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:center;font-variant-numeric:tabular-nums}.dashboard th{font-size:12px;color:var(--muted);background:#fff7e8}.dashboard td:first-child,.dashboard th:first-child{text-align:left;font-weight:900}.dashboard tr:nth-child(even){background:#fffaf3}.hidden{display:none!important}.bottom-tip{margin:18px 2px;color:var(--muted);font-size:13px}.footer{margin-top:22px;color:#876f5b;font-size:12px;text-align:center}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:760px){.shell{padding:16px 12px 32px}.top{align-items:flex-start}.privacy{max-width:145px;text-align:center}.intro{padding:23px 20px}.intro h2{margin-right:0}.intro:after{display:none}.mode-cards{grid-template-columns:1fr}.mode-card{min-height:unset}.panel{padding:18px}.scenario{grid-template-columns:1fr 110px;padding:15px;gap:10px}.scale-art{transform:scale(.78);transform-origin:center}.choice{min-width:calc(50% - 6px);flex:1}.amounts .choice{min-width:28%}.action-row{align-items:stretch;flex-direction:column-reverse}.action-row .btn{width:100%}.result-grid{grid-template-columns:1fr 1fr}.result-grid .metric:last-child{grid-column:1/-1}}
+@media(max-width:390px){.brand h1{font-size:18px}.scenario{grid-template-columns:1fr}.scale-art{display:none}.choice{font-size:14px;padding:11px 8px}.amounts .choice{min-width:28%;padding:10px 4px}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="top">
+    <div class="brand"><div class="brand-mark" aria-hidden="true">🍞</div><div><p class="eyebrow">Пекарска мисия</p><h1>Спаси рецептата!</h1></div></div>
+    <div class="privacy">Работим с ученически кодове, без имена</div>
+  </header>
+
+  <section class="intro" id="intro">
+    <h2>Везната показва различно количество.</h2>
+    <p>Помогни на пекаря да сравни показанието с рецептата. Реши дали трябва да добави или да махне продукт и колко грама са нужни.</p>
+  </section>
+
+  <nav class="mode-nav" aria-label="Режими на играта">
+    <button class="tab active" data-view="home" type="button">Начало</button>
+    <button class="tab" data-view="practice" type="button">Тренировка</button>
+    <button class="tab" data-view="assessment" type="button">Проверка</button>
+    <button class="tab" data-view="dashboard" type="button">Резултати</button>
+  </nav>
+
+  <main>
+    <section class="panel" id="homeView">
+      <h2>Избери ученически код</h2>
+      <p class="muted">За да сравним резултатите преди и след играта, използвай един и същ код и същия браузър. Резултатите се записват локално на това устройство.</p>
+      <div class="setup">
+        <div class="field"><label for="studentCode">Код</label><select id="studentCode" aria-label="Избери ученически код"></select></div>
+      </div>
+      <div class="mode-cards">
+        <article class="mode-card"><div class="icon" aria-hidden="true">🧠</div><h3>Проверка преди играта</h3><p>Четири задачи без подсказки. Отговорите се оценяват след края.</p><button class="btn small" data-start="before" type="button">Започни проверката</button></article>
+        <article class="mode-card"><div class="icon" aria-hidden="true">⚖️</div><h3>Тренирам</h3><p>Реши поръчките. След всеки отговор ще видиш подсказка и числова пътека.</p><button class="btn small" data-start="practice" type="button">Започни играта</button></article>
+        <article class="mode-card"><div class="icon" aria-hidden="true">🌾</div><h3>Проверка след играта</h3><p>Нови числа със същия тип задачи. Отговорите се оценяват след края.</p><button class="btn small" data-start="after" type="button">Провери напредъка</button></article>
+      </div>
+      <p class="bottom-tip">Правило за пекаря: ако показанието е под целта, добавяме. Ако е над целта, махаме. Разликата показва колко грама.</p>
+    </section>
+
+    <section class="panel hidden" id="taskView" aria-live="polite">
+      <div class="task-head"><div><h2 id="modeTitle">Поръчка</h2><p class="muted" id="modePrompt">Отговори самостоятелно.</p></div><span class="round-tag" id="roundTag">ЗАДАЧА 1/4</span></div>
+      <div class="bar-track" aria-label="Напредък"><div class="bar-fill" id="progressBar"></div></div>
+      <div class="scenario"><div><p class="target" id="targetText">Рецептата изисква 300 г вода.</p><p class="actual" id="actualText">280 <span class="unit">г</span></p></div><div class="scale-art" aria-label="Кухненска везна"><span id="scaleText">280 г</span></div></div>
+      <p class="question">Какво трябва да направи пекарят?</p>
+      <div class="answer-group"><div class="choices" id="actionChoices" role="group" aria-label="Избери действие"></div></div>
+      <div class="answer-group"><p class="question">Колко грама?</p><div class="choices amounts" id="amountChoices" role="group" aria-label="Избери количество"></div></div>
+      <p class="quick-hint" id="hintLine">Помисли: везната показва по-малко или повече от рецептата?</p>
+      <div id="feedback" class="feedback hidden"></div>
+      <div class="action-row"><span class="inline-note" id="responseNote">Избери действие и количество.</span><button class="btn" id="submitAnswer" type="button" disabled>Провери отговора</button></div>
+    </section>
+
+    <section class="panel hidden" id="resultView" aria-live="polite"></section>
+    <section class="panel hidden" id="dashboardView">
+      <div class="task-head"><div><h2>Резултати по кодове</h2><p class="muted">Показват се само запазените проверки от този браузър.</p></div><button class="btn secondary small" id="exportCsv" type="button">Изтегли CSV</button></div>
+      <div class="dashboard" id="dashboardTable"></div>
+      <p class="saved-note">НД означава „няма данни“. Липсващ отговор не се отчита като грешен. За сравнимост провеждай проверките преди и след играта на едно и също устройство.</p>
+    </section>
+  </main>
+  <footer class="footer">Пекарна за полезен хляб · Упражнение за сравняване на количества в грамове</footer>
+</div>
+<script>
+(function(){
+  const codes=Array.from({length:18},(_,i)=>`У${i+1}`);
+  const key='spasi-receptata-results-v1';
+  const base=[
+    {target:300,actual:280,ingredient:'вода'},
+    {target:300,actual:320,ingredient:'брашно'},
+    {target:300,actual:298,ingredient:'вода'},
+    {target:300,actual:100,ingredient:'брашно'}
+  ];
+  const post=[
+    {target:500,actual:480,ingredient:'брашно'},
+    {target:500,actual:520,ingredient:'вода'},
+    {target:500,actual:498,ingredient:'брашно'},
+    {target:500,actual:300,ingredient:'вода'}
+  ];
+  const practice=[
+    {target:300,actual:280,ingredient:'вода'},
+    {target:300,actual:320,ingredient:'брашно'},
+    {target:300,actual:298,ingredient:'сол'},
+    {target:300,actual:100,ingredient:'брашно'}
+  ];
+  const actionLabels={add:'Добави',remove:'Махни'};
+const state={mode:null,tasks:[],index:0,answers:[],action:null,amount:null,feedbackOpen:false,practiceEarned:0};
+let memoryData={};
+  const $=id=>document.getElementById(id);
+  const home=$('homeView'), taskView=$('taskView'), resultView=$('resultView'), dashboardView=$('dashboardView');
+  const select=$('studentCode');
+  codes.forEach(code=>{const o=document.createElement('option');o.value=code;o.textContent=code;select.appendChild(o)});
+
+  function readData(){try{memoryData=JSON.parse(localStorage.getItem(key)||'{}');return memoryData}catch(e){return memoryData}}
+  function writeData(data){memoryData=data;try{localStorage.setItem(key,JSON.stringify(data));return true}catch(e){return false}}
+  function solution(task){return {action:task.actual<task.target?'add':task.actual>task.target?'remove':'keep',amount:Math.abs(task.target-task.actual)}}
+  function setView(name){
+    home.classList.toggle('hidden',name!=='home');
+    taskView.classList.toggle('hidden',name!=='task');
+    resultView.classList.toggle('hidden',name!=='result');
+    dashboardView.classList.toggle('hidden',name!=='dashboard');
+    $('intro').classList.toggle('hidden',name==='task');
+    document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.view===(name==='task'?'practice':name==='result'?'home':name)));
+  }
+  function start(mode){
+    state.mode=mode; state.tasks=mode==='before'?base:mode==='after'?post:practice;
+    state.index=0; state.answers=[]; state.action=null; state.amount=null; state.feedbackOpen=false; state.practiceEarned=0;
+    $('modeTitle').textContent=mode==='practice'?'Тренировка на пекаря':mode==='before'?'Проверка преди играта':'Проверка след играта';
+    $('modePrompt').textContent=mode==='practice'?'Избери самостоятелно, после използвай пътеката за проверка.': 'Работи самостоятелно. Подсказките ще се покажат след четирите отговора.';
+    setView('task'); renderTask();
+  }
+  function renderTask(){
+    const task=state.tasks[state.index];
+    const total=state.tasks.length;
+    $('roundTag').textContent=`ЗАДАЧА ${state.index+1}/${total}`;
+    $('progressBar').style.width=`${(state.index/total)*100}%`;
+    $('targetText').textContent=`Рецептата изисква ${task.target} г ${task.ingredient}.`;
+    $('actualText').innerHTML=`${task.actual} <span class="unit">г</span>`;
+    $('scaleText').textContent=`${task.actual} г`;
+    $('hintLine').textContent=state.mode==='practice'?'Помисли: везната показва по-малко или повече от рецептата?':'Избери действие и намери разликата в грамове.';
+    $('feedback').className='feedback hidden'; $('feedback').innerHTML='';
+    $('responseNote').textContent='Избери действие и количество.';
+    $('submitAnswer').textContent=state.mode==='practice'?'Провери отговора':state.index===total-1?'Завърши проверката':'Запиши и продължи';
+    $('submitAnswer').disabled=true;
+    state.action=null;state.amount=null;state.feedbackOpen=false;
+    $('actionChoices').innerHTML=''; $('amountChoices').innerHTML='';
+    [['add','Добави'],['remove','Махни']].forEach(([value,label])=>{
+      const b=document.createElement('button'); b.type='button'; b.className='choice'; b.textContent=label; b.setAttribute('aria-pressed','false');
+      b.addEventListener('click',()=>selectChoice('action',value,b)); $('actionChoices').appendChild(b);
+    });
+    [2,20,200].forEach(value=>{
+      const b=document.createElement('button'); b.type='button'; b.className='choice'; b.textContent=`${value} г`; b.setAttribute('aria-pressed','false');
+      b.addEventListener('click',()=>selectChoice('amount',value,b)); $('amountChoices').appendChild(b);
+    });
+  }
+  function selectChoice(type,value,button){
+    if(state.feedbackOpen)return;
+    state[type]=value;
+    const group=type==='action'?'actionChoices':'amountChoices';
+    document.querySelectorAll(`#${group} .choice`).forEach(b=>{const selected=b===button;b.classList.toggle('selected',selected);b.setAttribute('aria-pressed',selected?'true':'false')});
+    $('submitAnswer').disabled=!(state.action&&state.amount);
+  }
+  function lineValues(task){
+    const ans=solution(task); const start=task.actual,goal=task.target;
+    const magnitude=Math.abs(goal-start); const step=magnitude===2?1:magnitude===20?10:100;
+    const dir=goal>start?step:-step; const vals=[start];
+    while((dir>0&&vals[vals.length-1]<goal)||(dir<0&&vals[vals.length-1]>goal)){
+      const next=vals[vals.length-1]+dir; vals.push(dir>0?Math.min(next,goal):Math.max(next,goal));
+    }
+    return vals;
+  }
+  function buildLine(task){
+    const vals=lineValues(task);const wrap=document.createElement('div');wrap.className='number-line';wrap.setAttribute('aria-label','Числова пътека от показанието до целта');
+    vals.forEach((v,i)=>{const n=document.createElement('span');n.className='number-node'+(i===0?' start':'')+(i===vals.length-1?' goal':'');n.textContent=`${v} г`;wrap.appendChild(n);if(i<vals.length-1){const a=document.createElement('span');a.className='line-arrow';a.textContent=vals[i+1]>v?'→':'←';a.setAttribute('aria-hidden','true');wrap.appendChild(a)}});
+    return wrap;
+  }
+  function submit(){
+    const task=state.tasks[state.index],ans=solution(task);
+    const record={action:state.action,amount:Number(state.amount),actionCorrect:state.action===ans.action,amountCorrect:Number(state.amount)===ans.amount};
+    if(state.mode==='practice'){
+      if(!state.feedbackOpen){
+        state.feedbackOpen=true;
+        const good=record.actionCorrect&&record.amountCorrect;
+        if(good)state.practiceEarned++;
+        const fb=$('feedback');fb.className=`feedback ${good?'good':'try'}`;
+        fb.innerHTML=`<h3>${good?'Точно! Поръчката е спасена.':'Нека проверим заедно.'}</h3><div>${task.actual<task.target?'Показанието е под целта, затова добавяме.':task.actual>task.target?'Показанието е над целта, затова махаме.':'Показанието съвпада с целта.'} Разликата е <strong>${ans.amount} г</strong>, затова правилното действие е <strong>${actionLabels[ans.action].toLowerCase()} ${ans.amount} г</strong>.</div></div>`;
+        fb.appendChild(buildLine(task));
+        $('hintLine').textContent='Тръгни от показанието и преброй до целта.';
+        $('responseNote').textContent=good?'Отлично! Продължи към следващата поръчка.':'Прочети обяснението и продължи, когато си готов.';
+        $('submitAnswer').textContent=state.index===state.tasks.length-1?'Виж резултата':'Следваща поръчка';
+        $('submitAnswer').disabled=false;
+        return;
+      }
+      state.answers.push(record);
+      if(state.index<state.tasks.length-1){state.index++;renderTask()}else finish();
+      return;
+    }
+    state.answers.push(record);
+    if(state.index<state.tasks.length-1){state.index++;renderTask()}else finish();
+  }
+  function score(answers){return {action:answers.filter(a=>a.actionCorrect).length,amount:answers.filter(a=>a.amountCorrect).length,total:answers.reduce((n,a)=>n+Number(a.actionCorrect)+Number(a.amountCorrect),0)}}
+  function finish(){
+    const code=select.value; const result=score(state.answers); const mode=state.mode;
+    if(mode!=='practice'){
+      const data=readData();data[code]=data[code]||{};
+      data[code][mode]={...result,answers:state.answers.slice(),completedAt:new Date().toISOString()};
+      writeData(data);
+    }
+    $('progressBar').style.width='100%';
+    resultView.innerHTML='';
+    const h=document.createElement('h2');h.textContent=mode==='practice'?'Мисията е изпълнена!':'Проверката е готова!';resultView.appendChild(h);
+    const p=document.createElement('p');p.className='muted';p.textContent=`Код ${code} · ${mode==='practice'?'Тренировка':mode==='before'?'Преди играта':'След играта'}`;resultView.appendChild(p);
+    const grid=document.createElement('div');grid.className='result-grid';
+    [[result.total+'/8','Общо точки'],[result.action+'/4','Правилно действие'],[result.amount+'/4','Правилен грамаж']].forEach(([n,l])=>{const d=document.createElement('div');d.className='metric';d.innerHTML=`<strong>${n}</strong><span>${l}</span>`;grid.appendChild(d)});resultView.appendChild(grid);
+    const tbl=document.createElement('table');tbl.className='result-table';tbl.innerHTML='<thead><tr><th>Задача</th><th>Действие</th><th>Грамаж</th><th>Верният отговор</th></tr></thead>';
+    const body=document.createElement('tbody');
+    state.tasks.forEach((t,i)=>{const a=state.answers[i],s=solution(t),tr=document.createElement('tr');tr.innerHTML=`<td>${t.actual} г → ${t.target} г</td><td class="${a.actionCorrect?'correct':'incorrect'}">${a.actionCorrect?'Вярно':'Провери'}</td><td class="${a.amountCorrect?'correct':'incorrect'}">${a.amountCorrect?'Вярно':'Провери'}</td><td>${actionLabels[s.action].toLowerCase()} ${s.amount} г</td>`;body.appendChild(tr)});
+    tbl.appendChild(body);resultView.appendChild(tbl);
+    if(mode==='practice'){
+      const explain=document.createElement('p');explain.className='muted';explain.textContent=`Самостоятелно верни задачи преди подсказката: ${state.practiceEarned} от 4. Виж отговорите по-горе и повтори числовата пътека при нужда.`;resultView.appendChild(explain);
+    }else{
+      const note=document.createElement('p');note.className='saved-note';note.textContent='Резултатът е записан по кода в този браузър. Отвори „Резултати“, за да го сравниш с другата проверка.';resultView.appendChild(note);
+    }
+    const row=document.createElement('div');row.className='setup';
+    const b1=document.createElement('button');b1.className='btn';b1.textContent='Към началото';b1.addEventListener('click',()=>setView('home'));
+    const b2=document.createElement('button');b2.className='btn secondary';b2.textContent='Виж резултатите';b2.addEventListener('click',()=>showDashboard());row.append(b1,b2);resultView.appendChild(row);
+    setView('result');
+  }
+  function showDashboard(){
+    const data=readData(); const table=document.createElement('table');
+    table.innerHTML='<thead><tr><th>Код</th><th>Преди · действие /4</th><th>Преди · грамаж /4</th><th>След · действие /4</th><th>След · грамаж /4</th><th>Промяна общо</th></tr></thead>';
+    const tbody=document.createElement('tbody');
+    codes.forEach(code=>{const d=data[code]||{},b=d.before,a=d.after;const delta=b&&a?a.total-b.total:null;const tr=document.createElement('tr');tr.innerHTML=`<td>${code}</td><td>${b?b.action:'НД'}</td><td>${b?b.amount:'НД'}</td><td>${a?a.action:'НД'}</td><td>${a?a.amount:'НД'}</td><td>${delta===null?'НД':(delta>0?'+':'')+delta}</td>`;tbody.appendChild(tr)});
+    table.appendChild(tbody);const wrap=$('dashboardTable');wrap.innerHTML='';wrap.appendChild(table);setView('dashboard');
+  }
+  function exportCsv(){
+    const data=readData();const lines=[['Код','Преди действие /4','Преди грамаж /4','Преди общо /8','След действие /4','След грамаж /4','След общо /8','Промяна'].join(';')];
+    codes.forEach(code=>{const d=data[code]||{},b=d.before,a=d.after;const delta=b&&a?a.total-b.total:'';lines.push([code,b?b.action:'НД',b?b.amount:'НД',b?b.total:'НД',a?a.action:'НД',a?a.amount:'НД',a?a.total:'НД',delta].join(';'))});
+    const blob=new Blob(['\ufeff'+lines.join('\n')],{type:'text/csv;charset=utf-8'});const url=URL.createObjectURL(blob);const link=document.createElement('a');link.href=url;link.download='rezultati-spasi-receptata.csv';document.body.appendChild(link);link.click();link.remove();URL.revokeObjectURL(url);
+  }
+  document.querySelectorAll('[data-start]').forEach(b=>b.addEventListener('click',()=>start(b.dataset.start)));
+  document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.view==='dashboard')showDashboard();else setView(b.dataset.view)}));
+  $('submitAnswer').addEventListener('click',submit);
+  $('exportCsv').addEventListener('click',exportCsv);
+  setView('home');
+})();
+</script>
+</body>
+</html>
